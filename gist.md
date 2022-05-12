@@ -2,8 +2,6 @@
 
 Have you ever wondered what the string of numbers and symbols used in a search pattern is? Well, look no further. These expressions, called regex expressions were developed by computer scientist Stephen Cole Kleene and describe how you might search for something in vast amounts of text. 
 
-## Summary
-
 /[ap+]\l(e|s)/
 
 What word am I searching for? Today I will be explaining how regex searches for different characters and numbers in a text editting software. In the expression above, the search is telling it to look for a series of alpha numeric characters in the following paragraph: 
@@ -11,6 +9,12 @@ What word am I searching for? Today I will be explaining how regex searches for 
 Apples are the best. They have the flavor of a sweet and tart candy. When you bite into an apple the tast is great. Even aligators like apples! 
 
 In searching for ap+ it is looking for something that returns a word with ap and more than one 'p' characters after it. Therefore, this search would most likely return the word apple, but we will see more as we continue to explore what the characters mean. 
+
+## Summary
+
+Matching an Email: `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+
+Today, we will be exploring the expression above. Theroughout this tutorial we will try to understand what the different components of the search for this email help us do when trying to match a person or email with the one above. Ultimately, the symbols as well as groupings give us a sense of where to go. 
 
 ## Table of Contents
 
@@ -29,9 +33,35 @@ In a regex expression, we can break the components into anchors, quantifiers, gr
 
 ### Anchors
 
+Anchors are the pieces of the regex experession that tell us what our expression may start and end with. 
+
+If you ever see a ^ this symbolizes the beginning or starting word. In this case the starting string is represented by this portion of text: 
+
+^([a-z0-9_\.-]+)
+
+The carrot tells us to look for the beginning string that has letters a-z and numbers 0-9. We will explore a little more in depth the other components of this string in a minute. 
+
+The ending string is signified by a $. As we see in the following code 
+
+([a-z\.]{2,6})$
+
+Ultimately, this is telling the user to look for a string at the end that contains letters between a and z as well as a period. We will again explore this further in future sections. 
+
 ### Quantifiers
 
+The quanitifiers tell you how many of a specific character might follow. Quantifiers can be shown by a * ? or {}. In the expression we are exploring today, the quantifiers are expressed with curly braces. Let's take a look at our ending sequence from above. 
+
+([a-z\.]{2,6})$
+
+As we explained, the sequence is looking for letters between a and z and then a period. However, what do the 2 and 6 mean? In this example, the syntax of {2,6} tells us that it can have between 2 and 6 of those characters in our ending string. 
+
+For example, in a more simplified version, I might have a{2,6}. This means that the string with have between 2 and 6 'a' characters at the end of the string. Because in our email example, we have a more complicated search criteria, it means that we can have between 2 and 6 alphabet characters at the end. 
+
 ### Grouping Constructs
+
+Matching an Email: `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+
+In 
 
 ### Bracket Expressions
 
