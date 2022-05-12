@@ -45,7 +45,7 @@ The ending string is signified by a $. As we see in the following code
 
 ([a-z\.]{2,6})$
 
-Ultimately, this is telling the user to look for a string at the end that contains letters between a and z as well as a period. We will again explore this further in future sections. 
+Ultimately, this is telling the user to look for a string at the end that contains letters between a and z. We will again explore this further in future sections. 
 
 ### Quantifiers
 
@@ -63,8 +63,7 @@ In regex expresions, parenthesis serve to group the characters and search patter
 
 ^([a-z0-9_\.-]+),
 
-the () tell the computer to search for the first string in the way outlined inside the parenthesis. In this example, it is looking for a string of numbers, letters, and anything including the characters: '_', '/', '.', or '-'.
-Because we have grouped using a parenthesis, anything that comes within a string on its own with be searched.
+the () tell the computer to search for the first string in the way outlined inside the parenthesis. In this example, it is looking for a string of numbers and letters. Because we have grouped using a parenthesis, anything that comes within a string on its own with be searched.
 
 ### Bracket Expressions
 
@@ -72,16 +71,32 @@ In bracket expressions, the information will search for anything that has those 
 
 [a-z\.]
 
-the brackets surround the range from a to z. This means that the search will return anything that has a lower case a, b, c, ..., z. Additionally there are the characters \ and . following this. Meaning it will also include the backslash and period in the search. As a final note, the alphabet is lower case, meaning that it will only find lowercase strings of letters. 
+the brackets surround the range from a to z. This means that the search will return anything that has a lower case a, b, c, ..., z. As a final note, the alphabet is lower case, meaning that it will only find lowercase strings of letters. 
 
-As another example, as we said above, [a-z0-9_\.-] will search for anything with a lower case letter from a-z and number form 0 to 9 as well as the characters specified after the 9. 
+As another example, as we said above, [a-z0-9_\.-] will search for anything with a lower case letter from a-z and number form 0 to 9. 
 
 ### Character Classes
 
-Matching an Email: `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+Anything with a \ may be determined to be aa character class. In this example I see it in both the ended and begining strings as \.. In both of these cases. the \. is telling it to search for anything that does not have a new line. The character classes in general tell the search what type of thing to look for. For example \W means to look for whitespace and \d means to look for a digit. 
+
+[a-z0-9_\.-]
+
+In looking at this beginning phrase, the \. is telling the search to look for soemthing with lower case letters or numbers between 0 and 9 which do not have the new line character. 
 
 
 ### The OR Operator
+
+The OR operator can be shown in two different ways with [] or (|). In the case above we only have brackets. However, I will also show you how you could change these to parentheses notation. Let's take a look at our ending sequence again. 
+
+[a-z\.]
+
+The brackets tell this search to look for a letter between a and z. This means the letter could be a or b or c or d or ... Additionally, you see the characters \ and . after the letters. Because of bracket notation, it reads the string must have the letters or the period. 
+
+If I were to convert this to parenthesis notation, it might look like 
+
+(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z)
+
+as the | serves the place that or might in english. 
 
 ### Flags
 
