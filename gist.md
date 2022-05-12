@@ -12,7 +12,7 @@ In searching for ap+ it is looking for something that returns a word with ap and
 
 ## Summary
 
-Matching an Email: `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+`/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
 Today, we will be exploring the expression above. Theroughout this tutorial we will try to understand what the different components of the search for this email help us do when trying to match a person or email with the one above. Ultimately, the symbols as well as groupings give us a sense of where to go. 
 
@@ -79,9 +79,9 @@ As another example, as we said above, [a-z0-9_\.-] will search for anything with
 
 Anything with a \ may be determined to be aa character class. In this example I see it in both the ended and begining strings as \.. In both of these cases. the \. is telling it to search for anything that does not have a new line. The character classes in general tell the search what type of thing to look for. For example \W means to look for whitespace and \d means to look for a digit. 
 
-[a-z0-9_\.-]
+@([\da-z\.-]+)\.
 
-In looking at this beginning phrase, the \. is telling the search to look for soemthing with lower case letters or numbers between 0 and 9 which do not have the new line character. 
+In looking at this phrase, the \. is telling the search to look for soemthing with lower case letters or numbers between 0 and 9 which do not have the new line character. Because of the @, the characters need to come after the @ in the email and not create a new line at that point. 
 
 
 ### The OR Operator
@@ -100,7 +100,18 @@ as the | serves the place that or might in english.
 
 ### Flags
 
+/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+
+Usually regex expressions need to be wrapped in // in order to tell the computer to search for what is within the slashes. The one exception is in the case of flags. In the expression above, there are no flags. However, if instead we had /i at the end of the expression, this would tell the search to conduct it as if it was case insensitive. 
+
 ### Character Escapes
+
+Finally, the last type of character which is important to point out is the \. as you have seen before the \ might mean that you should search for a specific class. However, it might also mean that you need to search for a specific character. For example, 
+
+[a-z0-9_\.-]
+
+in this string of characters, the \ tells the computer that it might have a period or a -. 
+
 
 ## Author
 
