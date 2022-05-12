@@ -59,13 +59,27 @@ For example, in a more simplified version, I might have a{2,6}. This means that 
 
 ### Grouping Constructs
 
-Matching an Email: `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+In regex expresions, parenthesis serve to group the characters and search patter into parts. For example, in our starting string of code, 
 
-In 
+^([a-z0-9_\.-]+),
+
+the () tell the computer to search for the first string in the way outlined inside the parenthesis. In this example, it is looking for a string of numbers, letters, and anything including the characters: '_', '/', '.', or '-'.
+Because we have grouped using a parenthesis, anything that comes within a string on its own with be searched.
 
 ### Bracket Expressions
 
+In bracket expressions, the information will search for anything that has those characters. If we take a look at our ending expression,
+
+[a-z\.]
+
+the brackets surround the range from a to z. This means that the search will return anything that has a lower case a, b, c, ..., z. Additionally there are the characters \ and . following this. Meaning it will also include the backslash and period in the search. As a final note, the alphabet is lower case, meaning that it will only find lowercase strings of letters. 
+
+As another example, as we said above, [a-z0-9_\.-] will search for anything with a lower case letter from a-z and number form 0 to 9 as well as the characters specified after the 9. 
+
 ### Character Classes
+
+Matching an Email: `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+
 
 ### The OR Operator
 
