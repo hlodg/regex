@@ -1,4 +1,4 @@
-# Title (replace with your title)
+# Regex tutorial
 
 Have you ever wondered what the string of numbers and symbols used in a search pattern is? Well, look no further. These expressions, called regex expressions were developed by computer scientist Stephen Cole Kleene and describe how you might search for something in vast amounts of text. 
 
